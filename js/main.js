@@ -108,7 +108,7 @@
     gallery.addEventListener("mousedown", function (e) {
       down = true;
       gallery.classList.add("is-dragging");
-      startX = e.pageX - gallery.offsetLeft;
+      startX = e.pageX;
       startLeft = gallery.scrollLeft;
     });
 
@@ -125,8 +125,7 @@
     gallery.addEventListener("mousemove", function (e) {
       if (!down) return;
       e.preventDefault();
-      var x = e.pageX - gallery.offsetLeft;
-      var walk = (x - startX) * 1.15;
+      var walk = (e.pageX - startX) * 1.15;
       gallery.scrollLeft = startLeft - walk;
     });
   }
