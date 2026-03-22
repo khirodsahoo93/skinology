@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-IN">
+<html lang="en-IN" data-theme="neon">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -7,7 +7,7 @@
       name="description"
       content="SKINOLOGY — Premium dermatology, laser & aesthetic clinic in Sambalpur, Odisha. Dr. Samiksha Pradhan. Book via WhatsApp."
     />
-    <meta name="theme-color" content="#080907" />
+    <meta name="theme-color" content="#080907" id="meta-theme-color" />
     <link rel="canonical" href="https://www.yourdomain.com/" />
     <title>SKINOLOGY | Dermatology & Aesthetics — Sambalpur</title>
 
@@ -42,6 +42,17 @@
     <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
 
     <header class="site-header" data-header>
+      <div class="header-theme-bar">
+        <div class="header-theme-inner">
+          <span class="header-theme-label" id="theme-label">Theme</span>
+          <div class="theme-chips" role="group" aria-labelledby="theme-label">
+            <button type="button" class="theme-chip is-active" data-set-theme="neon" aria-pressed="true">Neon</button>
+            <button type="button" class="theme-chip" data-set-theme="forest" aria-pressed="false">Forest</button>
+            <button type="button" class="theme-chip" data-set-theme="clinical" aria-pressed="false">Clinical</button>
+            <button type="button" class="theme-chip" data-set-theme="blush" aria-pressed="false">Blush</button>
+          </div>
+        </div>
+      </div>
       <div class="header-inner">
         <a class="logo" href="#top">
           <span class="logo-text">Skinology</span>

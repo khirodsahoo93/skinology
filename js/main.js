@@ -1,4 +1,5 @@
 (function () {
+  var docEl = document.documentElement;
   var body = document.body;
   var header = document.querySelector("[data-header]");
   var navToggle = document.querySelector("[data-nav-toggle]");
@@ -10,9 +11,58 @@
   var gallery = document.querySelector("[data-drag-scroll]");
   var tiltEl = document.querySelector("[data-tilt]");
 
+  var THEME_KEY = "skinology-fancy-theme";
+  var THEME_COLORS = {
+    neon: "#080907",
+    forest: "#f6f4f0",
+    clinical: "#060a12",
+    blush: "#140f11",
+  };
+
   if (yearEl) {
     yearEl.textContent = String(new Date().getFullYear());
   }
+
+  /* Themes */
+  var chips = document.querySelectorAll("[data-set-theme]");
+  var metaTheme = document.getElementById("meta-theme-color");
+
+  function closeMobileNav() {
+    if (header && navToggle) {
+      header.classList.remove("nav-open");
+      navToggle.setAttribute("aria-expanded", "false");
+    }
+  }
+
+  function applyTheme(name) {
+    if (!name || !THEME_COLORS[name]) return;
+    docEl.setAttribute("data-theme", name);
+    try {
+      localStorage.setItem(THEME_KEY, name);
+    } catch (e) {}
+    chips.forEach(function (btn) {
+      var on = btn.getAttribute("data-set-theme") === name;
+      btn.classList.toggle("is-active", on);
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+    if (metaTheme) {
+      metaTheme.setAttribute("content", THEME_COLORS[name]);
+    }
+  }
+
+  try {
+    var saved = localStorage.getItem(THEME_KEY);
+    if (saved && THEME_COLORS[saved]) {
+      applyTheme(saved);
+    }
+  } catch (e) {}
+
+  chips.forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      applyTheme(btn.getAttribute("data-set-theme"));
+      closeMobileNav();
+    });
+  });
 
   /* Header */
   function onScroll() {

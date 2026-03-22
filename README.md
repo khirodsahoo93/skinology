@@ -6,6 +6,7 @@ Photos are **Unsplash** (skincare, clinical, wellness stock).
 
 ## Features
 
+- **Theme switcher** at the top of the header: **Neon** (default), **Forest** (light clinic), **Clinical** (navy + cyan), **Blush** (rose). Choice is saved in `localStorage`.
 - Marquee under the header, hero image parallax, drag-to-scroll gallery, subtle cursor glow (desktop), tilt on about image, count-up stats.
 - Respects `prefers-reduced-motion` where relevant.
 
