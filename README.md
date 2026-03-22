@@ -1,16 +1,13 @@
-# SKINOLOGY — Fancy (dynamic themes)
+# SKINOLOGY — Fancy (editorial layout + original clinic look)
 
-A high-energy marketing page for **SKINOLOGY** (Dr. Samiksha Pradhan, Sambalpur). Visual language takes cues from bold editorial athlete sites such as [Lando Norris](https://landonorris.com/) — dark canvases, neon accent, oversized type, marquee, split panels, horizontal gallery — adapted for dermatology with **Unsplash** photography (skincare, clinical, wellness).
+Marketing page for **SKINOLOGY** (Dr. Samiksha Pradhan, Sambalpur). **Layout and motion** are from the “fancy” build (marquee, mega split panels, horizontal gallery, parallax, etc.). **Typography and colours** match the first static site: **Fraunces** + **DM Sans**, warm **#f6f4f0** background, forest / sage / cream / gold palette.
+
+Photos are **Unsplash** (skincare, clinical, wellness stock).
 
 ## Features
 
-- **Four themes** (persisted in `localStorage`): **Neon** (dark + acid lime), **Forest** (light sage), **Clinical** (navy + cyan), **Blush** (dusk + rose).
-- **Marquee** ticker under the header.
-- **Hero parallax** on the main image (respects reduced motion).
-- **Drag-to-scroll** gallery strip on desktop.
-- **Subtle cursor glow** on large pointers only; disabled for reduced motion / touch.
-- **3D tilt** on the about image (desktop, motion OK).
-- **Count-up** animation for hero stats when they enter the viewport.
+- Marquee under the header, hero image parallax, drag-to-scroll gallery, subtle cursor glow (desktop), tilt on about image, count-up stats.
+- Respects `prefers-reduced-motion` where relevant.
 
 ## Run locally
 
@@ -25,7 +22,6 @@ Open `http://127.0.0.1:8080/`.
 
 - Replace `yourdomain.com` in `robots.txt` / `sitemap.xml` / canonical meta.
 - Swap Unsplash URLs for your own clinic photos if you prefer.
-- Add a privacy note if you rely on `localStorage` for theme (optional cookie banner in India context).
 
 ## Repo
 

@@ -1,5 +1,4 @@
 (function () {
-  var doc = document.documentElement;
   var body = document.body;
   var header = document.querySelector("[data-header]");
   var navToggle = document.querySelector("[data-nav-toggle]");
@@ -11,50 +10,9 @@
   var gallery = document.querySelector("[data-drag-scroll]");
   var tiltEl = document.querySelector("[data-tilt]");
 
-  var THEME_KEY = "skinology-fancy-theme";
-  var THEME_COLORS = {
-    lando: "#080907",
-    forest: "#f4f1eb",
-    clinical: "#060a12",
-    blush: "#140f11",
-  };
-
   if (yearEl) {
     yearEl.textContent = String(new Date().getFullYear());
   }
-
-  /* Themes */
-  var chips = document.querySelectorAll("[data-set-theme]");
-  var metaTheme = document.getElementById("meta-theme-color");
-
-  function applyTheme(name) {
-    if (!name || !THEME_COLORS[name]) return;
-    doc.setAttribute("data-theme", name);
-    try {
-      localStorage.setItem(THEME_KEY, name);
-    } catch (e) {}
-    chips.forEach(function (btn) {
-      var on = btn.getAttribute("data-set-theme") === name;
-      btn.classList.toggle("is-active", on);
-      btn.setAttribute("aria-pressed", on ? "true" : "false");
-    });
-    if (metaTheme && THEME_COLORS[name]) {
-      metaTheme.setAttribute("content", THEME_COLORS[name]);
-    }
-  }
-
-  try {
-    var saved = localStorage.getItem(THEME_KEY);
-    if (saved && THEME_COLORS[saved]) {
-      applyTheme(saved);
-    }
-  } catch (e) {}
-
-  chips.forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      applyTheme(btn.getAttribute("data-set-theme"));
-    });
-  });
 
   /* Header */
   function onScroll() {
