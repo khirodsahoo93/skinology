@@ -1,31 +1,33 @@
-/* SKINOLOGY Fancy — layout + motion from fancy build; fonts + palette from original clinic site */
+/* SKINOLOGY Fancy — Neon palette + DM Sans (readable body & content) */
 
 :root {
-  --bg: #f6f4f0;
-  --bg-elevated: #fffcf7;
-  --surface: #ffffff;
-  --ink: #121816;
-  --ink-muted: #4a534e;
-  --line: rgba(18, 24, 22, 0.08);
-  --forest: #0f2722;
-  --forest-mid: #1a3d34;
-  --sage: #3d5c52;
-  --cream: #e8dfd2;
-  --gold: #c4a574;
+  --bg: #080907;
+  --bg-elevated: #10120c;
+  --surface: #161812;
+  --ink: #eeeee6;
+  --ink-muted: #9a9d90;
+  --line: rgba(255, 255, 255, 0.08);
+  --neon: #d4ff00;
+  --neon-deep: #9fcc00;
+  /* legacy names (sections still reference these) */
+  --forest: #f2f2ea;
+  --forest-mid: #252818;
+  --sage: #b8c49a;
+  --cream: #0a0b08;
+  --gold: #d4ff00;
   --white: #ffffff;
-  --shadow: 0 24px 60px rgba(15, 39, 34, 0.12);
+  --shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
   --font-sans: "DM Sans", system-ui, sans-serif;
-  --font-display: "Fraunces", Georgia, serif;
+  --font-display: "DM Sans", system-ui, sans-serif;
   --header-h: 4.25rem;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  /* semantic aliases (fancy sections) */
   --text: var(--ink);
   --text-muted: var(--ink-muted);
-  --accent: var(--forest-mid);
-  --accent-text: var(--cream);
-  --glow: rgba(26, 61, 52, 0.18);
-  --hero-overlay: linear-gradient(105deg, rgba(246, 244, 240, 0.96) 0%, rgba(246, 244, 240, 0.52) 52%, transparent 100%);
-  color-scheme: light;
+  --accent: var(--neon);
+  --accent-text: #0a0b08;
+  --glow: rgba(212, 255, 0, 0.35);
+  --hero-overlay: linear-gradient(105deg, rgba(8, 9, 7, 0.92) 0%, rgba(8, 9, 7, 0.45) 55%, transparent 100%);
+  color-scheme: dark;
 }
 
 *,
@@ -51,10 +53,11 @@ body {
   margin: 0;
   font-family: var(--font-sans);
   font-size: 1.0625rem;
-  line-height: 1.6;
+  line-height: 1.65;
   color: var(--text);
   background: var(--bg);
   -webkit-font-smoothing: antialiased;
+  font-optical-sizing: auto;
 }
 
 img {
@@ -85,9 +88,9 @@ a {
   top: -100%;
   z-index: 2000;
   padding: 0.75rem 1rem;
-  background: var(--forest);
-  color: var(--white);
-  font-weight: 600;
+  background: var(--accent);
+  color: var(--accent-text);
+  font-weight: 700;
   text-decoration: none;
   border-radius: 8px;
 }
@@ -109,7 +112,7 @@ a {
   transform: translate(-50%, -50%);
   opacity: 0;
   transition: opacity 0.4s ease;
-  mix-blend-mode: multiply;
+  mix-blend-mode: screen;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -117,7 +120,7 @@ a {
     display: block;
   }
   body.has-cursor-glow:hover .cursor-glow {
-    opacity: 0.45;
+    opacity: 0.5;
   }
 }
 
@@ -139,11 +142,12 @@ a {
 }
 
 .marquee-track span {
-  font-family: var(--font-display);
-  font-size: 1.2rem;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  color: var(--sage);
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
   padding-right: 3rem;
   white-space: nowrap;
 }
@@ -174,7 +178,7 @@ a {
 
 .site-header.is-scrolled {
   border-bottom-color: var(--line);
-  box-shadow: 0 8px 32px rgba(15, 39, 34, 0.06);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
 }
 
 .header-inner {
@@ -187,16 +191,16 @@ a {
 }
 
 .logo-text {
-  font-family: var(--font-display);
-  font-size: 1.35rem;
-  font-weight: 600;
+  font-family: var(--font-sans);
+  font-size: 1.2rem;
+  font-weight: 700;
   letter-spacing: -0.02em;
   text-decoration: none;
-  color: var(--forest);
+  color: var(--text);
 }
 
 .logo:hover .logo-text {
-  color: var(--sage);
+  color: var(--accent);
 }
 
 .site-nav {
@@ -215,7 +219,7 @@ a {
 }
 
 .site-nav a:not(.btn):hover {
-  color: var(--forest);
+  color: var(--accent);
 }
 
 .nav-toggle {
@@ -236,7 +240,7 @@ a {
   display: block;
   width: 1.1rem;
   height: 2px;
-  background: var(--forest);
+  background: var(--text);
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -335,24 +339,25 @@ a {
 }
 
 .btn-accent {
-  background: linear-gradient(160deg, var(--forest-mid), var(--forest));
-  color: var(--cream);
-  box-shadow: 0 12px 28px rgba(15, 39, 34, 0.28);
+  background: linear-gradient(165deg, #e8ff52, var(--neon-deep));
+  color: var(--accent-text);
+  box-shadow: 0 12px 32px rgba(212, 255, 0, 0.22);
 }
 
 .btn-accent:hover {
-  box-shadow: 0 16px 36px rgba(15, 39, 34, 0.35);
+  box-shadow: 0 16px 44px rgba(212, 255, 0, 0.32);
 }
 
 .btn-outline {
   background: transparent;
-  color: var(--forest);
-  border-color: rgba(15, 39, 34, 0.2);
+  color: var(--text);
+  border-color: rgba(255, 255, 255, 0.22);
 }
 
 .btn-outline:hover {
-  border-color: var(--forest);
-  background: rgba(255, 255, 255, 0.6);
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(212, 255, 0, 0.06);
 }
 
 /* Hero */
@@ -399,7 +404,7 @@ a {
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--sage);
+  color: var(--accent);
   margin: 0 0 0.75rem;
 }
 
@@ -410,17 +415,24 @@ a {
 
 .hero-line {
   display: block;
-  font-family: var(--font-display);
-  font-size: clamp(2.35rem, 8vw, 4.25rem);
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  line-height: 1.08;
-  color: var(--forest);
+  font-family: var(--font-sans);
+  font-size: clamp(2.5rem, 9vw, 4.75rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.06;
+  color: var(--text);
 }
 
 .hero-line-accent {
-  color: var(--sage);
-  font-style: italic;
+  color: var(--accent);
+  font-style: normal;
+}
+
+@supports (-webkit-text-stroke: 1px) {
+  .hero-line-accent {
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--accent);
+  }
 }
 
 .hero-sub {
@@ -553,12 +565,12 @@ a {
 }
 
 .mega-word {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: clamp(3rem, 12vw, 5.5rem);
-  font-weight: 600;
+  font-weight: 800;
   margin: 0.25rem 0 0.75rem;
   line-height: 0.95;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
 }
 
 .mega-panel-inner p {
@@ -596,18 +608,18 @@ a {
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--sage);
+  color: var(--accent);
   margin: 0 0 0.5rem;
 }
 
 .title-outline {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: clamp(2.2rem, 6vw, 3.75rem);
-  font-weight: 500;
+  font-weight: 800;
   margin: 0 0 0.75rem;
   line-height: 1.05;
-  letter-spacing: -0.02em;
-  color: var(--forest);
+  letter-spacing: -0.03em;
+  color: var(--text);
 }
 
 .title-outline--sm {
@@ -715,12 +727,12 @@ a {
 }
 
 .section-title {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: clamp(1.75rem, 3vw, 2.5rem);
-  font-weight: 500;
-  line-height: 1.15;
+  font-weight: 700;
+  line-height: 1.2;
   letter-spacing: -0.02em;
-  color: var(--forest);
+  color: var(--text);
   margin: 0 0 1rem;
 }
 
@@ -787,11 +799,11 @@ a {
 }
 
 .service-card h3 {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   margin: 0 0 0.5rem;
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: var(--forest);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
 }
 
 .service-card p {
@@ -803,7 +815,7 @@ a {
 .service-card a {
   font-weight: 600;
   font-size: 0.9rem;
-  color: var(--sage);
+  color: var(--accent);
   text-decoration: none;
 }
 
@@ -913,12 +925,12 @@ a {
 }
 
 .cta-box h2 {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: clamp(2rem, 5vw, 3.25rem);
-  font-weight: 500;
+  font-weight: 800;
   margin: 0 0 0.75rem;
-  letter-spacing: -0.02em;
-  color: var(--forest);
+  letter-spacing: -0.03em;
+  color: var(--text);
 }
 
 .cta-box p {
@@ -957,7 +969,8 @@ a {
 .logo-footer {
   display: inline-block;
   margin-bottom: 0.5rem;
-  color: var(--forest);
+  color: var(--text);
+  font-weight: 700;
 }
 
 .footer-grid address {
@@ -967,7 +980,7 @@ a {
 }
 
 .footer-grid a {
-  color: var(--forest-mid);
+  color: var(--accent);
   font-weight: 600;
 }
 

@@ -1,6 +1,6 @@
-# SKINOLOGY — Fancy (editorial layout + original clinic look)
+# SKINOLOGY — Fancy (Neon + readable type)
 
-Marketing page for **SKINOLOGY** (Dr. Samiksha Pradhan, Sambalpur). **Layout and motion** are from the “fancy” build (marquee, mega split panels, horizontal gallery, parallax, etc.). **Typography and colours** match the first static site: **Fraunces** + **DM Sans**, warm **#f6f4f0** background, forest / sage / cream / gold palette.
+Marketing page for **SKINOLOGY** (Dr. Samiksha Pradhan, Sambalpur). **Layout and motion**: marquee, mega split panels, horizontal gallery, parallax, etc. **Look**: dark **Neon** theme (near-black + acid lime `#d4ff00`). **Typography**: **DM Sans** everywhere for readable body and content; heavier weights for headlines.
 
 Photos are **Unsplash** (skincare, clinical, wellness stock).
 
