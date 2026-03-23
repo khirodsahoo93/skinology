@@ -64,19 +64,46 @@
     });
   });
 
-  /* Header */
+  var scrollTopBtn = document.querySelector("[data-scroll-top]");
+  var sectionDock = document.querySelector(".section-dock");
+
+  /* Header + scroll-to-top visibility */
   function onScroll() {
+    var y = window.scrollY;
     if (header) {
-      header.classList.toggle("is-scrolled", window.scrollY > 40);
+      header.classList.toggle("is-scrolled", y > 40);
     }
     if (heroImg && window.matchMedia("(prefers-reduced-motion: no-preference)").matches) {
-      var y = window.scrollY * 0.18;
-      heroImg.style.transform = "translate3d(0, " + y + "px, 0) scale(1.05)";
+      var py = y * 0.18;
+      heroImg.style.transform = "translate3d(0, " + py + "px, 0) scale(1.05)";
+    }
+    if (scrollTopBtn) {
+      scrollTopBtn.classList.toggle("is-visible", y > 380);
     }
   }
 
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
+
+  if (scrollTopBtn) {
+    scrollTopBtn.addEventListener("click", function () {
+      var instant = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({ top: 0, behavior: instant ? "auto" : "smooth" });
+      if (document.getElementById("top")) {
+        try {
+          history.replaceState(null, "", "#top");
+        } catch (e) {}
+      }
+    });
+  }
+
+  if (sectionDock) {
+    sectionDock.querySelectorAll('a[href^="#"]').forEach(function (a) {
+      a.addEventListener("click", function () {
+        closeMobileNav();
+      });
+    });
+  }
 
   if (navToggle && nav && header) {
     navToggle.addEventListener("click", function () {
