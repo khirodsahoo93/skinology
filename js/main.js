@@ -78,7 +78,7 @@
       heroImg.style.transform = "translate3d(0, " + py + "px, 0) scale(1.05)";
     }
     if (scrollTopBtn) {
-      scrollTopBtn.classList.toggle("is-visible", y > 380);
+      scrollTopBtn.classList.toggle("is-visible", y > 280);
     }
   }
 
